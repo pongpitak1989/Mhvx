@@ -6,12 +6,25 @@
         xmlns:local="clr-namespace:TestGit"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1200" Background="#FFFFBABA" BorderBrush="#FFFF9898" OpacityMask="#FFFF9494">
-    <Grid Margin="0,0,-8,-10" Background="#FFCDCDCD">
+    <Grid Background="#FFCDCDCD">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <DockPanel Height="100" LastChildFill="False" Margin="0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-        <DockPanel HorizontalAlignment="Left" LastChildFill="False" Margin="0,100,0,0" Width="100" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
-        <DockPanel LastChildFill="False" Margin="100,100,0,0" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Width="1102">
-            <Canvas Background="#FFFB8A8A" Margin="0,300,0,31" Height="268" Width="529"/>
-        </DockPanel>
+        <!-- Top header spanning both columns -->
+        <Border Grid.Row="0" Grid.ColumnSpan="2" Background="{StaticResource {x:Static SystemColors.HighlightBrushKey}}"/>
+        
+        <!-- Left sidebar -->
+        <Border Grid.Row="1" Grid.Column="0" Background="{StaticResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+        
+        <!-- Main content area -->
+        <Border Grid.Row="1" Grid.Column="1" Background="{StaticResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+            <Canvas Background="#FFFB8A8A" Width="529" Height="268" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,300,0,0"/>
+        </Border>
     </Grid>
 </Window>
